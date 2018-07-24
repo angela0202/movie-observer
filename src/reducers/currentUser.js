@@ -2,9 +2,7 @@ import {
   LOGIN_SUCCESS,
 } from '../actions/actionTypes';
 
-const initialState = {
-  currentUser: null
-};
+const initialState = null;
 
 export default (state = initialState, action) => {
   switch (action.type) {
