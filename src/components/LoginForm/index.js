@@ -29,7 +29,13 @@ const theme = createMuiTheme({
   },
 });
 
-export const LoginForm = ({ handleSubmit, onSubmit, classes }) => {
+export const LoginForm = ({
+  handleSubmit,
+  onSubmit,
+  classes,
+  isLoginRequesting,
+  loginError,
+}) => {
   return (
     <div className={classes.container}>
       <Card className={classes.card}>
@@ -70,7 +76,10 @@ export const LoginForm = ({ handleSubmit, onSubmit, classes }) => {
                 Login
               </Button>
             </MuiThemeProvider>
-            <div className="message" />
+            <div className="message">
+              {isLoginRequesting && <div>Please wait...</div>}
+              {loginError && <div>{loginError.message}</div>}
+            </div>
           </form>
         </CardContent>
       </Card>
