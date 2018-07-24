@@ -4,7 +4,8 @@ import {
   AppBar,
   Toolbar,
   Typography,
-  Button
+  Button,
+  Avatar
 } from '@material-ui/core/';
 
 const styles = {
@@ -16,9 +17,7 @@ const styles = {
   },
 };
 
-const Navigation = (props) => {
-  console.log('props',props);
-  const { classes, logout } = props;
+const Navigation = ({ classes, logout, currentUser }) => {
 
   return (
     <div className={classes.root}>
@@ -27,6 +26,9 @@ const Navigation = (props) => {
           <Typography variant="title" color="inherit" className={classes.flex}>
             News
           </Typography>
+          <Avatar>
+            {currentUser.username[0]}
+          </Avatar>
           <Button color="inherit" onClick={logout}>Logout</Button>
         </Toolbar>
       </AppBar>
