@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Router, Switch, Route } from 'react-router-dom';
 
 import PrivateRoute from '../PrivateRoute';
 import LoginForm from '../../containers/LoginForm';
+import history from '../../helpers/history';
 
 class App extends Component {
   render() {
     return (
-      <Router>
+      <Router history={history}>
         <Switch>
           <PrivateRoute exact path="/" render={() => <div>Home page</div>}/>
           <Route path="/login" render={() => <LoginForm/>} />

@@ -1,4 +1,5 @@
 import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from './actionTypes';
+import history from '../helpers/history';
 
 const loginRequest = (user, isLoginRequesting) => ({
   type: LOGIN_REQUEST,
@@ -40,6 +41,7 @@ export const login = (username, password) => {
       if (!error) {
         dispatch(loginSuccess(user, true));
         localStorage.setItem('user', JSON.stringify(user));
+        history.push('/');
       } else {
         dispatch(loginFailure(error));
       }
