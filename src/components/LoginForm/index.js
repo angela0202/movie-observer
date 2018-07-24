@@ -38,7 +38,7 @@ export const LoginForm = ({ handleSubmit, onSubmit, classes }) => {
           <CardMedia className={classes.media} image="/images/login.jpeg.jpg" />
         </div>
         <CardContent>
-          <form className={classes.form}>
+          <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
             <Field
               name="username"
               component={renderTextField}
@@ -70,8 +70,7 @@ export const LoginForm = ({ handleSubmit, onSubmit, classes }) => {
                 Login
               </Button>
             </MuiThemeProvider>
-            <div className="message">
-            </div>
+            <div className="message" />
           </form>
         </CardContent>
       </Card>
