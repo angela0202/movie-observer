@@ -5,7 +5,7 @@ import PrivateRoute from '../PrivateRoute';
 import LoginForm from '../../containers/LoginForm';
 import history from '../../helpers/history';
 
-import A from '../a';
+import Main from '../../containers/Main';
 import Navigation from '../../containers/Navigation';
 
 const App = ({ isAuthenticated }) => {
@@ -18,7 +18,7 @@ const App = ({ isAuthenticated }) => {
             exact
             path="/"
             isAuthenticated={isAuthenticated}
-            component={A}
+            component={Main}
           />
           <Route path="/login" render={() => <LoginForm />} />
         </Switch>
