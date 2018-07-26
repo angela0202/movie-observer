@@ -11,12 +11,20 @@ class MainContainer extends Component {
   }
 
   render() {
-    return <Main popularMovies={this.props.popularMovies}/>
+    return <Main
+      popularMovies={this.props.popularMovies}
+      genres={this.props.genres}
+      genresLoading={this.props.genresLoading}
+      moviesLoading={this.props.moviesLoading}
+    />
   }
 }
 
 const mapStateToProps = (state) => ({
-  popularMovies: state.movieReducer.popularMovies
+  popularMovies: state.movieReducer.popularMovies,
+  genres: state.movieReducer.genres,
+  moviesLoading: state.movieReducer.moviesLoading,
+  genresLoading: state.movieReducer.genresLoading
 });
 
 const mapDispatchToProps = dispatch => ({
