@@ -10,6 +10,8 @@ import {
 const initialState = {
   popularMovies: {},
   genres: {},
+  moviesLoading: false,
+  genresLoading: false
 };
 
 export default (state = initialState, action) => {
@@ -17,35 +19,35 @@ export default (state = initialState, action) => {
     case POPULAR_MOVIES_FETCH_REQUEST:
       return {
         ...state,
-        loading: true,
+        moviesLoading: action.moviesLoading,
       };
     case POPULAR_MOVIES_FETCH_SUCCESS:
       return {
         ...state,
-        loading: false,
+        moviesLoading: action.moviesLoading,
         popularMovies: action.payload,
       };
     case POPULAR_MOVIES_FETCH_FAILURE:
       return {
         ...state,
-        loading: false,
+        moviesLoading: action.moviesLoading,
         err: action.payload.err,
       };
     case MOVIE_GENRES_FETCH_REQUEST:
       return {
         ...state,
-        loading: true,
+        genresLoading: true,
       };
     case MOVIE_GENRES_FETCH_SUCCESS:
       return {
         ...state,
-        loading: false,
+        genresLoading: false,
         genres: action.payload,
       };
     case MOVIE_GENRES_FETCH_FAILURE:
       return {
         ...state,
-        loading: false,
+        genresLoading: false,
         err: action.payload.err,
       };
     default:
