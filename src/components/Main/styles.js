@@ -15,4 +15,15 @@ export default {
       background: 'rgba(0, 0, 0, .35)',
     },
   },
+
+  optionsContainer: {
+    height: '90px',
+    background: '#030f1a',
+    borderRadius: 0,
+  },
+
+  search: {
+    background: 'rgba(78, 69, 69, .2)',
+    color: '#fff',
+  },
 };

@@ -1,17 +1,38 @@
-import React from 'react';
-import { CardMedia, Paper } from '@material-ui/core/';
+import React, { Fragment } from 'react';
+import { CardMedia, Paper, Button, InputAdornment, TextField } from '@material-ui/core/';
 import { withStyles } from '@material-ui/core/styles';
+import {Search} from '@material-ui/icons/';
 
 import styles from './styles';
 
-const Main = ({ popularMovies, classes }) => {
+const Main = ({ popularMovies, classes, clicked, handleClick }) => {
+  const onClick = () => {
+    handleClick();
+  };
+
   return (
-    <header className={classes.header}>
+    <Fragment>
+      <header className={classes.header}>
         <CardMedia
           image="https://images.pexels.com/photos/326514/pexels-photo-326514.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb"
           style={{ height: '330px' }}
         />
-    </header>
+      </header>
+      <Paper className={classes.optionsContainer}>
+        <TextField
+          id="input-with-icon-textfield"
+          className={classes.search}
+          placeholder="Search"
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <Search style={{color: 'fff'}}/>
+              </InputAdornment>
+            ),
+          }}
+        />
+      </Paper>
+    </Fragment>
   );
 };
 
