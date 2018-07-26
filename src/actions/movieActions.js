@@ -66,6 +66,16 @@ export const fetchMovieGenres = () => dispatch => {
   )
     .then(handleErrors)
     .then(res => res.json())
-    .then(payload => dispatch(fetchMovieGenres(payload)))
+    .then(payload => {
+      const genres = payload.genres
+        .map(curr => {
+          let id = curr.id;
+          return {
+            [id]: curr.name,
+          };
+        })
+        .reduce((acc, ell) => ({ ...acc, ...ell }), {});
+      return dispatch(movieGenresFetchSuccess(genres));
+    })
     .catch(err => dispatch(movieGenresFetchFailure(err)));
 };
