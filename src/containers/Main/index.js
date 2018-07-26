@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Main from '../../components/Main';
-import { fetchPopularMovies } from '../../actions/movieActions';
+import { fetchPopularMovies, fetchMovieGenres } from '../../actions/movieActions';
 
 class MainContainer extends Component {
   componentDidMount() {
     this.props.fetchPopularMovies();
+    this.props.fetchMovieGenres();
   }
 
   render() {
@@ -19,7 +20,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchPopularMovies: () => dispatch(fetchPopularMovies())
+  fetchPopularMovies: () => dispatch(fetchPopularMovies()),
+  fetchMovieGenres: () => dispatch(fetchMovieGenres())
 });
 
 
