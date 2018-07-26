@@ -20,8 +20,6 @@ const Main = ({
   classes,
   moviesLoading,
 }) => {
-  console.log(moviesLoading);
-
   return (
     <Fragment>
       <header className={classes.header}>
