@@ -12,6 +12,7 @@ export default (state = initialState, action) => {
     case LOGOUT_SUCCESS: {
       return { ...state, logoutRequesting: false };
     }
+    default:
+      return state
   }
-  return state;
 };
