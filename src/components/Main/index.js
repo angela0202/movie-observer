@@ -8,6 +8,8 @@ import {
   CardContent,
   Typography,
   List,
+  Button,
+  Chip
 } from '@material-ui/core/';
 import { withStyles } from '@material-ui/core/styles';
 import { Search } from '@material-ui/icons/';
@@ -44,7 +46,7 @@ const Main = ({ popularMovies, genres, classes, moviesLoading }) => {
       <div className={classes.moviesContainer}>
         {!moviesLoading &&
           popularMovies.results && (
-            <div>
+            <div className={classes.movies}>
               {popularMovies.results.map((movie, index) => (
                 <Card className={classes.card} key={index}>
                   <CardMedia
@@ -66,13 +68,11 @@ const Main = ({ popularMovies, genres, classes, moviesLoading }) => {
                       </Typography>
                       <List className={classes.list}>
                         {movie.genre_ids.map(id => (
-                          <span key={id} className={classes.genre}>
-                            {genres[id]}
-                          </span>
+                          <Chip label={genres[id]} key={id} className={classes.genre}/>
                         ))}
                       </List>
 
-                      <Typography component="p">
+                      <Typography component="p" className={classes.discription}>
                         {movie.overview.substr(0, 120)}...
                       </Typography>
                     </CardContent>
@@ -82,6 +82,10 @@ const Main = ({ popularMovies, genres, classes, moviesLoading }) => {
               ))}
             </div>
           )}
+        <div className={classes.buttonsContainer}>
+          <Button>Prev</Button>
+          <Button>Next</Button>
+        </div>
       </div>
     </Fragment>
   );

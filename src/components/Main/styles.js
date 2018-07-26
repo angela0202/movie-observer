@@ -31,7 +31,8 @@ export default {
     display: 'flex',
     height: 'max-content',
     flexDirection: 'column',
-    background: '#e6e6e6'
+    background: '#e6e6e6',
+    padding: '20px 0',
   },
 
   movieCard: {
@@ -42,28 +43,30 @@ export default {
   list: {
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'space-evenly',
   },
 
   genre: {
     fontSize: '16px',
-    color: '#9FA7A9',
+    margin: '3px'
   },
 
   card: {
     display: 'flex',
-    margin: '32px 62px',
-    height: '300px'
+    margin: '20px',
+    height: '300px',
+    width: '500px',
   },
   details: {
     display: 'flex',
     flexDirection: 'column',
   },
   content: {
+    display: 'flex',
+    flexDirection: 'column',
     flex: '1 0 auto',
   },
   cover: {
-    width: '300px',
+    width: '611px',
   },
   controls: {
     display: 'flex',
@@ -75,8 +78,28 @@ export default {
   },
 
   title: {
+    fontSize: '25px',
+    fontWeight: 'bold',
     '&:hover': {
-      textDecoration: 'underline'
-    }
-  }
+      textDecoration: 'underline',
+    },
+  },
+
+  buttonsContainer: {
+    display: 'flex',
+    alignSelf: 'center',
+    padding: '10px',
+  },
+
+  movies: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+  },
+
+  discription: {
+    fontSize: '15px',
+    marginTop: 'auto',
+  },
 };
