@@ -28,7 +28,7 @@ const Navigation = ({ classes, logout, currentUser }) => {
       <AppBar position="static" className={classes.appBar}>
         <Toolbar>
           <Typography variant="title" color="inherit" className={classes.flex}>
-            News
+            Movie Observer
           </Typography>
           <Avatar>
             {currentUser.username[0]}
