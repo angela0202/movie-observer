@@ -4,16 +4,10 @@ import {
   Paper,
   InputAdornment,
   TextField,
-  Card,
-  CardContent,
-  Typography,
-  List,
   Button,
-  Chip
 } from '@material-ui/core/';
 import { withStyles } from '@material-ui/core/styles';
 import { Search } from '@material-ui/icons/';
-import { Link } from 'react-router-dom';
 
 import styles from './styles';
 import MoviesList from '../../containers/MoviesList';
