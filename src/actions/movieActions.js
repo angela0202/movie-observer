@@ -13,22 +13,24 @@ const apiKey = store.getState().currentUser.password;
 
 const popularMoviesRequest = () => ({
   type: POPULAR_MOVIES_FETCH_REQUEST,
-  loading: true,
+  moviesLoading: true,
 });
 
 const popularMoviesFetchSuccess = payload => ({
   type: POPULAR_MOVIES_FETCH_SUCCESS,
   payload,
+  moviesLoading: false,
 });
 
 const popularMoviesFetchFailure = err => ({
   type: POPULAR_MOVIES_FETCH_FAILURE,
   payload: { err },
+  moviesLoading: false,
 });
 
 const movieGenresFetchRequest = () => ({
   type: MOVIE_GENRES_FETCH_REQUEST,
-  loading: true,
+  genresLoading: true,
 });
 
 const movieGenresFetchSuccess = payload => ({
