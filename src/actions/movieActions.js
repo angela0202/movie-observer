@@ -50,10 +50,11 @@ const handleErrors = res => {
   return res;
 };
 
-export const fetchPopularMovies = () => dispatch => {
+export const fetchPopularMovies = (page) => dispatch => {
+  const page = page || 1;
   dispatch(popularMoviesRequest());
   return fetch(
-    `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`
+    `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=${page}`
   )
     .then(handleErrors)
     .then(res => res.json())
