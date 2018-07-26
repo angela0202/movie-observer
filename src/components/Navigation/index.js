@@ -7,6 +7,7 @@ import {
   Button,
   Avatar
 } from '@material-ui/core/';
+import { Link } from 'react-router-dom';
 
 const styles = {
   root: {
@@ -28,7 +29,7 @@ const Navigation = ({ classes, logout, currentUser }) => {
       <AppBar position="static" className={classes.appBar}>
         <Toolbar>
           <Typography variant="title" color="inherit" className={classes.flex}>
-            Movie Observer
+            <Link to="/" style={{textDecoration: 'none', color: '#fff'}}>Movie Observer</Link>
           </Typography>
           <Avatar>
             {currentUser.username[0]}
