@@ -11,15 +11,11 @@ import {
 } from '@material-ui/core/';
 import { withStyles } from '@material-ui/core/styles';
 import { Search } from '@material-ui/icons/';
+import { Link } from 'react-router-dom';
 
 import styles from './styles';
 
-const Main = ({
-  popularMovies,
-  genres,
-  classes,
-  moviesLoading,
-}) => {
+const Main = ({ popularMovies, genres, classes, moviesLoading }) => {
   return (
     <Fragment>
       <header className={classes.header}>
@@ -60,7 +56,14 @@ const Main = ({
                   />
                   <div className={classes.details}>
                     <CardContent className={classes.content}>
-                      <Typography variant="headline">{movie.title} ({movie.release_date.slice(0, 4)})</Typography>
+                      <Typography variant="headline" className={classes.title}>
+                        <Link
+                          to={`movie?/id=${movie.id}`}
+                          style={{ textDecoration: 'none', color: '#000' }}
+                        >
+                          {movie.title} ({movie.release_date.slice(0, 4)})
+                        </Link>
+                      </Typography>
                       <List className={classes.list}>
                         {movie.genre_ids.map(id => (
                           <span key={id} className={classes.genre}>
