@@ -62,7 +62,7 @@ const Main = ({
                   />
                   <div className={classes.details}>
                     <CardContent className={classes.content}>
-                      <Typography variant="headline">{movie.title}</Typography>
+                      <Typography variant="headline">{movie.title} ({movie.release_date.slice(0, 4)})</Typography>
                       <List className={classes.list}>
                         {movie.genre_ids.map(id => (
                           <span key={id} className={classes.genre}>
