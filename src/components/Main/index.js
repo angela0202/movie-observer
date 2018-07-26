@@ -1,12 +1,26 @@
 import React, { Fragment } from 'react';
-import { CardMedia, Paper, Button, InputAdornment, TextField } from '@material-ui/core/';
+import {
+  CardMedia,
+  Paper,
+  InputAdornment,
+  TextField,
+  Card,
+  CardContent,
+  Typography,
+  List,
+} from '@material-ui/core/';
 import { withStyles } from '@material-ui/core/styles';
-import {Search} from '@material-ui/icons/';
+import { Search } from '@material-ui/icons/';
 
 import styles from './styles';
 
-const Main = ({ popularMovies,genres, classes, moviesLoading, genresLoading }) => {
-console.log(moviesLoading);
+const Main = ({
+  popularMovies,
+  genres,
+  classes,
+  moviesLoading,
+}) => {
+  console.log(moviesLoading);
 
   return (
     <Fragment>
@@ -24,31 +38,50 @@ console.log(moviesLoading);
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <Search style={{color: 'fff'}}/>
+                <Search style={{ color: 'fff' }} />
               </InputAdornment>
             ),
           }}
         />
-        {moviesLoading && <div style={{fontSize: '40px', color: 'white'}}>Please wait...</div>}
+        {moviesLoading && (
+          <div style={{ fontSize: '40px', color: 'white' }}>Please wait...</div>
+        )}
       </Paper>
-      {!moviesLoading && popularMovies.results &&
-      <div style={{fontSize: '40px'}}>{
-        popularMovies.results.map(movie => (
+      <div className={classes.moviesContainer}>
+        {!moviesLoading &&
+          popularMovies.results && (
             <div>
-              <p>{movie.title}</p>
-              <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt=""/>
-              <ul>
-                {
-                  movie.genre_ids.map(id => (
-                    <li>{genres[id]}</li>
-                  ))
-                }
-              </ul>
+              {popularMovies.results.map((movie, index) => (
+                <Card className={classes.card} key={index}>
+                  <CardMedia
+                    className={classes.cover}
+                    image={`https://image.tmdb.org/t/p/w200/${
+                      movie.poster_path
+                    }`}
+                    title="Live from space album cover"
+                  />
+                  <div className={classes.details}>
+                    <CardContent className={classes.content}>
+                      <Typography variant="headline">{movie.title}</Typography>
+                      <List className={classes.list}>
+                        {movie.genre_ids.map(id => (
+                          <span key={id} className={classes.genre}>
+                            {genres[id]}
+                          </span>
+                        ))}
+                      </List>
+
+                      <Typography component="p">
+                        {movie.overview.substr(0, 120)}...
+                      </Typography>
+                    </CardContent>
+                    <div className={classes.controls} />
+                  </div>
+                </Card>
+              ))}
             </div>
-          )
-        )
-      }</div>
-      }
+          )}
+      </div>
     </Fragment>
   );
 };

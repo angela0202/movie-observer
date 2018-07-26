@@ -26,4 +26,51 @@ export default {
     background: 'rgba(78, 69, 69, .2)',
     color: '#fff',
   },
+
+  moviesContainer: {
+    display: 'flex',
+    height: 'max-content',
+    flexDirection: 'column',
+    background: '#e6e6e6'
+  },
+
+  movieCard: {
+    width: '325px',
+    margin: '15px',
+  },
+
+  list: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-evenly',
+  },
+
+  genre: {
+    fontSize: '16px',
+    color: '#9FA7A9',
+  },
+
+  card: {
+    display: 'flex',
+    margin: '32px 62px',
+    height: '300px'
+  },
+  details: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  content: {
+    flex: '1 0 auto',
+  },
+  cover: {
+    width: '300px',
+  },
+  controls: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  playIcon: {
+    height: 50,
+    width: 50,
+  },
 };
