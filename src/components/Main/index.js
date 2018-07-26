@@ -5,10 +5,8 @@ import {Search} from '@material-ui/icons/';
 
 import styles from './styles';
 
-const Main = ({ popularMovies, classes, clicked, handleClick }) => {
-  const onClick = () => {
-    handleClick();
-  };
+const Main = ({ popularMovies,genres, classes, moviesLoading, genresLoading }) => {
+console.log(moviesLoading);
 
   return (
     <Fragment>
@@ -31,7 +29,26 @@ const Main = ({ popularMovies, classes, clicked, handleClick }) => {
             ),
           }}
         />
+        {moviesLoading && <div style={{fontSize: '40px', color: 'white'}}>Please wait...</div>}
       </Paper>
+      {!moviesLoading && popularMovies.results &&
+      <div style={{fontSize: '40px'}}>{
+        popularMovies.results.map(movie => (
+            <div>
+              <p>{movie.title}</p>
+              <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt=""/>
+              <ul>
+                {
+                  movie.genre_ids.map(id => (
+                    <li>{genres[id]}</li>
+                  ))
+                }
+              </ul>
+            </div>
+          )
+        )
+      }</div>
+      }
     </Fragment>
   );
 };
