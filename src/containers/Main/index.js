@@ -21,7 +21,7 @@ class MainContainer extends Component {
       genres={this.props.genres}
       genresLoading={this.props.genresLoading}
       moviesLoading={this.props.moviesLoading}
-      onSearch={this.handleSearch}
+      handleSearch={this.handleSearch}
     />
   }
 }
