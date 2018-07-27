@@ -12,16 +12,10 @@ import { Link } from 'react-router-dom';
 
 import styles from './styles';
 
-const Movie = ({movie, genres, classes}) => {
+const Movie = ({ movie, genres, classes }) => {
   return (
     <Card className={classes.card}>
-      <CardMedia
-        className={classes.cover}
-        image={`https://image.tmdb.org/t/p/w200/${
-          movie.poster_path
-          }`}
-        title="Live from space album cover"
-      />
+      <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}  className={classes.cover} alt=""/>
       <div className={classes.details}>
         <CardContent className={classes.content}>
           <Typography variant="headline" className={classes.title}>
@@ -34,7 +28,7 @@ const Movie = ({movie, genres, classes}) => {
           </Typography>
           <List className={classes.list}>
             {movie.genre_ids.map(id => (
-              <Chip label={genres[id]} key={id} className={classes.genre}/>
+              <Chip label={genres[id]} key={id} className={classes.genre} />
             ))}
           </List>
 
@@ -42,11 +36,9 @@ const Movie = ({movie, genres, classes}) => {
             {movie.overview.substr(0, 120)}...
           </Typography>
         </CardContent>
-        <div className={classes.controls} />
       </div>
     </Card>
   );
-
 };
 
 export default withStyles(styles)(Movie);

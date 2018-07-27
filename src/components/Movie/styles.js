@@ -25,7 +25,9 @@ export default {
     flex: '1 0 auto',
   },
   cover: {
-    width: '611px',
+    width: '100%',
+    maxWidth: '300px',
+    height: 'auto'
   },
   title: {
     fontSize: '25px',
@@ -45,9 +47,23 @@ export default {
     flexWrap: 'wrap',
     flexDirection: 'row',
     justifyContent: 'space-evenly',
+    zIndex: 5
   },
   description: {
     fontSize: '15px',
     marginTop: 'auto',
   },
+
+  button: {
+
+  },
+
+  overlay: {
+    width: '100%',
+    height: '100%',
+
+    '&:hover': {
+      background: 'rgba(0, 0, 0, 0.5)'
+    }
+  }
 }
