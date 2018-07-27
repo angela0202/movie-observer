@@ -5,6 +5,9 @@ import {
   MOVIE_GENRES_FETCH_FAILURE,
   MOVIE_GENRES_FETCH_REQUEST,
   MOVIE_GENRES_FETCH_SUCCESS,
+  SEARCH_FETCH_REQUEST,
+  SEARCH_FETCH_SUCCESS,
+  SEARCH_FETCH_FAILURE
 } from './actionTypes';
 
 import store from '../store';
@@ -41,6 +44,24 @@ const movieGenresFetchSuccess = payload => ({
 const movieGenresFetchFailure = err => ({
   type: MOVIE_GENRES_FETCH_FAILURE,
   payload: { err },
+});
+
+
+const searchMoviesRequest = () => ({
+  type: SEARCH_FETCH_REQUEST,
+  moviesLoading: true,
+});
+
+const searchMoviesFetchSuccess = payload => ({
+  type: SEARCH_FETCH_SUCCESS,
+  payload,
+  moviesLoading: false,
+});
+
+const searchMoviesFetchFailure = err => ({
+  type: SEARCH_FETCH_FAILURE,
+  payload: { err },
+  moviesLoading: false,
 });
 
 const handleErrors = res => {
@@ -80,4 +101,16 @@ export const fetchMovieGenres = () => dispatch => {
       return dispatch(movieGenresFetchSuccess(genres));
     })
     .catch(err => dispatch(movieGenresFetchFailure(err)));
+};
+
+export const searchMovies = (query, page) => dispatch => {
+  dispatch(searchMoviesRequest());
+  return fetch(
+    `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${query}&page=${page || 1}`
+
+  )
+    .then(handleErrors)
+    .then(res => res.json())
+    .then(payload => dispatch(searchMoviesFetchSuccess(payload)))
+    .catch(err => dispatch(searchMoviesFetchFailure(err)));
 };
