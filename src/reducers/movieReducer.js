@@ -11,11 +11,10 @@ import {
 } from '../actions/actionTypes';
 
 const initialState = {
-  popularMovies: {},
+  movies: {},
   genres: {},
   moviesLoading: false,
   genresLoading: false,
-  searchedMovies: {}
 };
 
 export default (state = initialState, action) => {
@@ -29,7 +28,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         moviesLoading: action.moviesLoading,
-        popularMovies: action.payload,
+        movies: action.payload,
       };
     case POPULAR_MOVIES_FETCH_FAILURE:
       return {
@@ -61,7 +60,7 @@ export default (state = initialState, action) => {
     case SEARCH_FETCH_SUCCESS:
       return {
         ...state,
-        searchedMovies: action.payload,
+        movies: action.payload,
       };
     case SEARCH_FETCH_FAILURE:
       return {
