@@ -18,7 +18,8 @@ const initialState = {
   genres: {},
   moviesLoading: false,
   genresLoading: false,
-  movieDetails: null
+  movieDetails: null,
+  movieDetailsLoading: false
 };
 
 export default (state = initialState, action) => {
@@ -74,16 +75,19 @@ export default (state = initialState, action) => {
     case FETCH_MOVIE_DETAILS_REQUEST:
       return {
         ...state,
+        movieDetailsLoading: true
       };
     case FETCH_MOVIE_DETAILS_SUCCESS:
       return {
         ...state,
         movieDetails: action.payload,
+        movieDetailsLoading: false
       };
     case FETCH_MOVIE_DETAILS_FAILURE:
       return {
         ...state,
         err: action.payload.err,
+        movieDetailsLoading: false
       };
     default:
       return state;
