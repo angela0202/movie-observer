@@ -6,7 +6,8 @@ import {fetchMovieDetails} from '../../actions/movieActions';
 
 class MovieDetailsContainer extends Component {
   componentDidMount() {
-    this.props.fetchMovieDetails();
+    const movieId = window.location.pathname.slice(8);
+    this.props.fetchMovieDetails(movieId);
   }
 
   render() {
