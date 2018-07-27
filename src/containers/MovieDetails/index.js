@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import MovieDetails from '../../components/MovieDetails';
-import {fetchMovieDetails} from '../../actions/movieActions';
+import { fetchMovieDetails } from '../../actions/movieActions';
 
 class MovieDetailsContainer extends Component {
   componentDidMount() {
@@ -11,15 +11,25 @@ class MovieDetailsContainer extends Component {
   }
 
   render() {
-    return <MovieDetails />;
+    return (
+      <MovieDetails
+        movieDetails={this.props.movieDetails}
+        movieDetailsLoading={this.props.movieDetailsLoading}
+      />
+    );
   }
 }
 
+const mapStateToProps = state => ({
+  movieDetails: state.movieReducer.movieDetails,
+  movieDetailsLoading: state.movieReducer.movieDetailsLoading,
+});
+
 const mapDispatchToProps = dispatch => ({
-  fetchMovieDetails: (id) => dispatch(fetchMovieDetails(id))
+  fetchMovieDetails: id => dispatch(fetchMovieDetails(id)),
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(MovieDetailsContainer);
