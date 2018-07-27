@@ -25,7 +25,7 @@ const MovieDetails = ({ movieDetails, movieDetailsLoading, classes }) => {
       className={classes.container}
       style={{
         background:
-          'linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, ' +
+          'linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, ' +
           'rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0) 100%), ' +
           `url("https://image.tmdb.org/t/p/w1280/${
             movieDetails.backdrop_path

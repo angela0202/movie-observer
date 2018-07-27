@@ -1,6 +1,6 @@
 export default {
   container: {
-    height: '100vh',
+    height: '100%',
     padding: '2rem',
     textAlign: 'center',
     fontFamily: 'sans-serif',
@@ -12,13 +12,13 @@ export default {
 
   movie: {
     textAlign: 'left',
-    marginTop: '1em',
     background: 'rgba(0, 0, 0, .65)',
     width: '100%',
     height: 'max-content',
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    marginTop: '25px'
   },
 
   cover: {
