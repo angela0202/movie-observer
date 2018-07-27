@@ -5,6 +5,10 @@ import MovieDetails from '../../components/MovieDetails';
 import {fetchMovieDetails} from '../../actions/movieActions';
 
 class MovieDetailsContainer extends Component {
+  componentDidMount() {
+    this.props.fetchMovieDetails();
+  }
+
   render() {
     return <MovieDetails />;
   }
