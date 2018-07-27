@@ -1,4 +1,11 @@
 export default {
+  wrapper: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100vh',
+  },
+
   container: {
     height: '100%',
     padding: '2rem',
@@ -7,7 +14,7 @@ export default {
     overflow: 'auto',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
 
   movie: {
@@ -18,7 +25,7 @@ export default {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: '25px'
+    marginTop: '25px',
   },
 
   cover: {
@@ -28,14 +35,14 @@ export default {
 
   title: {
     color: '#fff',
-    padding: '5px'
+    padding: '5px',
   },
 
   titleContainer: {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
   },
 
   content: {
@@ -47,11 +54,11 @@ export default {
   genre: {
     margin: '3px',
     background: '#117063',
-    color: '#fff'
+    color: '#fff',
   },
   status: {
     background: '#117063',
     color: '#fff',
-    borderRadius: '6px'
-  }
+    borderRadius: '6px',
+  },
 };
