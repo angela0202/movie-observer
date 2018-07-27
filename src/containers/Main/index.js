@@ -12,6 +12,7 @@ class MainContainer extends Component {
   }
 
   handleSearch = (query, page) => {
+    !query ? this.props.fetchPopularMovies() :
     this.props.searchMovies(query, page);
   };
 
@@ -27,7 +28,7 @@ class MainContainer extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  popularMovies: state.movieReducer.popularMovies,
+  movies: state.movieReducer.movies,
   genres: state.movieReducer.genres,
   moviesLoading: state.movieReducer.moviesLoading,
   genresLoading: state.movieReducer.genresLoading
