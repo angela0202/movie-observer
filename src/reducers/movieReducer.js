@@ -4,14 +4,18 @@ import {
   POPULAR_MOVIES_FETCH_REQUEST,
   MOVIE_GENRES_FETCH_REQUEST,
   MOVIE_GENRES_FETCH_SUCCESS,
-  MOVIE_GENRES_FETCH_FAILURE
+  MOVIE_GENRES_FETCH_FAILURE,
+  SEARCH_FETCH_REQUEST,
+  SEARCH_FETCH_FAILURE,
+  SEARCH_FETCH_SUCCESS
 } from '../actions/actionTypes';
 
 const initialState = {
   popularMovies: {},
   genres: {},
   moviesLoading: false,
-  genresLoading: false
+  genresLoading: false,
+  searchedMovies: {}
 };
 
 export default (state = initialState, action) => {
@@ -48,6 +52,20 @@ export default (state = initialState, action) => {
       return {
         ...state,
         genresLoading: false,
+        err: action.payload.err,
+      };
+    case SEARCH_FETCH_REQUEST:
+      return {
+        ...state,
+      };
+    case SEARCH_FETCH_SUCCESS:
+      return {
+        ...state,
+        searchedMovies: action.payload,
+      };
+    case SEARCH_FETCH_FAILURE:
+      return {
+        ...state,
         err: action.payload.err,
       };
     default:
