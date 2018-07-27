@@ -26,7 +26,7 @@ const Movie = ({movie, genres, classes}) => {
         <CardContent className={classes.content}>
           <Typography variant="headline" className={classes.title}>
             <Link
-              to={`movie?/id=${movie.id}`}
+              to={`movie/:${movie.id}`}
               style={{ textDecoration: 'none', color: '#000' }}
             >
               {movie.title} ({movie.release_date.slice(0, 4)})
