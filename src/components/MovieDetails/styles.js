@@ -13,7 +13,7 @@ export default {
   movie: {
     textAlign: 'left',
     marginTop: '1em',
-    background: 'rgba(0,0,0,.8)',
+    background: 'rgba(0, 0, 0, .65)',
     width: '100%',
     height: 'max-content',
     display: 'flex',
