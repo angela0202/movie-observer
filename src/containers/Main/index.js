@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { reduxForm } from 'redux-form';
 
 import Main from '../../components/Main';
 import { fetchPopularMovies, fetchMovieGenres } from '../../actions/movieActions';
@@ -32,5 +33,11 @@ const mapDispatchToProps = dispatch => ({
   fetchMovieGenres: () => dispatch(fetchMovieGenres())
 });
 
+const formConfiguration = {
+  form: 'search',
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);
+
+const MainWithForm = reduxForm(formConfiguration)(MainContainer);
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainWithForm);

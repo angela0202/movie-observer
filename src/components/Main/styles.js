@@ -20,11 +20,10 @@ export default {
     height: '90px',
     background: '#030f1a',
     borderRadius: 0,
-  },
-
-  search: {
-    background: 'rgba(78, 69, 69, .2)',
-    color: '#fff',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
 
   moviesContainer: {
@@ -101,5 +100,42 @@ export default {
   discription: {
     fontSize: '15px',
     marginTop: 'auto',
+  },
+
+  bootstrapRoot: {
+    margin: '10px',
+    padding: 0,
+    background: '#fff',
+    'label + &': {
+    },
+  },
+
+  bootstrapInput: {
+    borderRadius: 4,
+    border: '1px solid #ced4da',
+    fontStyle: 'italic',
+    fontSize: 16,
+    padding: '10px 12px',
+    width: '526px',
+    fontFamily: [
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
+    '&:focus': {
+      borderColor: '#80bdff',
+      background: '#fff',
+      boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',
+    },
+  },
+  bootstrapFormLabel: {
+    fontSize: 18,
   },
 };

@@ -1,18 +1,19 @@
 import React, { Fragment } from 'react';
-import {
-  CardMedia,
-  Paper,
-  InputAdornment,
-  TextField,
-  Button,
-} from '@material-ui/core/';
+import { Field } from 'redux-form';
+import { CardMedia, Paper, TextField, Button } from '@material-ui/core/';
 import { withStyles } from '@material-ui/core/styles';
-import { Search } from '@material-ui/icons/';
 
 import styles from './styles';
 import MoviesList from '../../containers/MoviesList';
 
-const Main = ({ popularMovies, genres, classes, moviesLoading }) => {
+const renderTextField = ({
+  input,
+  label,
+  meta: { touched, error },
+  ...custom
+}) => <TextField label={label} placeholder={label} {...input} {...custom} />;
+
+const Main = ({ popularMovies, genres, classes }) => {
   return (
     <Fragment>
       <header className={classes.header}>
@@ -22,20 +23,24 @@ const Main = ({ popularMovies, genres, classes, moviesLoading }) => {
         />
       </header>
       <Paper className={classes.optionsContainer}>
-        <TextField
-          id="input-with-icon-textfield"
-          className={classes.search}
-          placeholder="Search"
+        <Field
+          name="search"
+          component={renderTextField}
+          placeholder="Search movies..."
           InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <Search style={{ color: 'fff' }} />
-              </InputAdornment>
-            ),
+            disableUnderline: true,
+            classes: {
+              root: classes.bootstrapRoot,
+              input: classes.bootstrapInput,
+            },
+          }}
+          InputLabelProps={{
+            shrink: true,
+            className: classes.bootstrapFormLabel,
           }}
         />
       </Paper>
-      <MoviesList/>
+      <MoviesList />
       <div className={classes.buttonsContainer}>
         <Button>Prev</Button>
         <Button>Next</Button>
