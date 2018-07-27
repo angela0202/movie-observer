@@ -11,12 +11,17 @@ class MainContainer extends Component {
     this.props.fetchMovieGenres();
   }
 
+  handleSearch = (query, page) => {
+    this.props.searchMovies(query, page);
+  };
+
   render() {
     return <Main
       popularMovies={this.props.popularMovies}
       genres={this.props.genres}
       genresLoading={this.props.genresLoading}
       moviesLoading={this.props.moviesLoading}
+      onSearch={this.handleSearch}
     />
   }
 }
