@@ -18,7 +18,7 @@ class MainContainer extends Component {
 
   render() {
     return <Main
-      popularMovies={this.props.popularMovies}
+      popularMovies={this.props.movies}
       genres={this.props.genres}
       genresLoading={this.props.genresLoading}
       moviesLoading={this.props.moviesLoading}

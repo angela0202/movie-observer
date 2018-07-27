@@ -13,7 +13,7 @@ class MovieListContainer extends Component {
 
   render() {
     return <MoviesList
-      popularMovies={this.props.popularMovies}
+      movies={this.props.movies}
       genres={this.props.genres}
       genresLoading={this.props.genresLoading}
       moviesLoading={this.props.moviesLoading}
@@ -22,7 +22,7 @@ class MovieListContainer extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  popularMovies: state.movieReducer.popularMovies,
+  movies: state.movieReducer.movies,
   genres: state.movieReducer.genres,
   moviesLoading: state.movieReducer.moviesLoading,
   genresLoading: state.movieReducer.genresLoading
