@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 
 import Main from '../../components/Main';
-import { fetchPopularMovies, fetchMovieGenres } from '../../actions/movieActions';
+import { fetchPopularMovies, fetchMovieGenres, searchMovies } from '../../actions/movieActions';
 
 class MainContainer extends Component {
   componentDidMount() {
@@ -30,7 +30,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchPopularMovies: () => dispatch(fetchPopularMovies()),
-  fetchMovieGenres: () => dispatch(fetchMovieGenres())
+  fetchMovieGenres: () => dispatch(fetchMovieGenres()),
+  searchMovies: (query, page) => dispatch(searchMovies(query, page))
 });
 
 const formConfiguration = {
