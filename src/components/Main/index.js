@@ -13,7 +13,7 @@ const renderTextField = ({
   ...custom
 }) => <TextField label={label} placeholder={label} {...input} {...custom} />;
 
-const Main = ({ popularMovies, genres, classes }) => {
+const Main = ({ popularMovies, genres, classes, handleSearch }) => {
   return (
     <Fragment>
       <header className={classes.header}>
@@ -38,6 +38,7 @@ const Main = ({ popularMovies, genres, classes }) => {
             shrink: true,
             className: classes.bootstrapFormLabel,
           }}
+          onChange={(e) => handleSearch(e.target.value)}
         />
       </Paper>
       <MoviesList />
