@@ -14,7 +14,7 @@ import {List,
 import FolderIcon from '@material-ui/icons/Folder';
 import DeleteIcon from '@material-ui/icons/Delete';
 
-import styles from 'styles';
+import styles from './styles';
 
 const Favorites = () => {
   return (
