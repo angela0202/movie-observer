@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  CardMedia,
   Card,
   CardContent,
   Typography,
@@ -9,19 +8,37 @@ import {
   Button,
 } from '@material-ui/core/';
 import { withStyles } from '@material-ui/core/styles';
-import { Favorite } from '@material-ui/icons/';
+import AddIcon from '@material-ui/icons/Add';
+import DeleteIcon from '@material-ui/icons/Delete';
 import { Link } from 'react-router-dom';
 
 import styles from './styles';
 
-const Movie = ({ movie, genres, classes, onAddToFavorites }) => {
+const Movie = ({
+  movie,
+  genres,
+  classes,
+  onAddToFavorites,
+  isFav,
+  onRemoveFromFavorites,
+}) => {
+  const onClick = () => {
+    return !isFav
+      ? onAddToFavorites(movie.id)
+      : onRemoveFromFavorites(movie.id);
+  };
+
   return (
     <Card className={classes.card}>
-      <div style={{position: 'relative'}}>
-        <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}  className={classes.cover} alt="" onClick={() => onAddToFavorites(movie.id)}/>
+      <div style={{ position: 'relative' }}>
+        <img
+          src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+          className={classes.cover}
+          alt=""
+        />
         <div className={classes.overlay}>
-          <Button variant="fab" className={classes.button}>
-            <Favorite />
+          <Button variant="fab" className={classes.button} onClick={onClick}>
+            {!isFav ? <AddIcon /> : <DeleteIcon />}
           </Button>
         </div>
       </div>
@@ -35,14 +52,15 @@ const Movie = ({ movie, genres, classes, onAddToFavorites }) => {
               {movie.title} ({movie.release_date.slice(0, 4)})
             </Link>
           </Typography>
-          {!genres ? '' : (
+          {!genres ? (
+            ''
+          ) : (
             <List className={classes.list}>
               {movie.genre_ids.map(id => (
                 <Chip label={genres[id]} key={id} className={classes.genre} />
               ))}
             </List>
           )}
-
           <Typography component="p" className={classes.description}>
             {movie.overview.substr(0, 120)}...
           </Typography>
