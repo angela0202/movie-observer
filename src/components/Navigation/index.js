@@ -31,6 +31,9 @@ const Navigation = ({ classes, logout, currentUser }) => {
           <Typography variant="title" color="inherit" className={classes.flex}>
             <Link to="/" style={{textDecoration: 'none', color: '#fff'}}>Movie Observer</Link>
           </Typography>
+          <Link to="/favorites">
+            <Button color="inherit"><span style={{textDecoration: 'none', color: '#fff'}}>Favorites</span></Button>
+          </Link>
           <Avatar>
             {currentUser.username[0]}
           </Avatar>
