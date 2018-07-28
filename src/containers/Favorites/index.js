@@ -10,12 +10,14 @@ class FavoritesContainer extends Component {
   }
 
   render() {
-    return <Favorites />;
+    return <Favorites favorites={this.props.fetchedFavorites} favoritesLoading={this.props.favoritesLoading}/>;
   }
 }
 
 const mapStateToProps = state => ({
   favorites: state.favorites.favIds,
+  fetchedFavorites: state.favorites.fetchedFavorites,
+  favoritesLoading: state.favorites.favoritesLoading
 });
 
 const mapDispatchToProps = dispatch => ({
