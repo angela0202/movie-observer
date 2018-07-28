@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Field } from 'redux-form';
-import { CardMedia, Paper, TextField, Button } from '@material-ui/core/';
+import { CardMedia, Paper, TextField } from '@material-ui/core/';
 import { withStyles } from '@material-ui/core/styles';
 
 import styles from './styles';
@@ -38,14 +38,10 @@ const Main = ({ popularMovies, genres, classes, handleSearch }) => {
             shrink: true,
             className: classes.bootstrapFormLabel,
           }}
-          onChange={(e) => handleSearch(e.target.value)}
+          onChange={e => handleSearch(e.target.value)}
         />
       </Paper>
       <MoviesList />
-      <div className={classes.buttonsContainer}>
-        <Button>Prev</Button>
-        <Button>Next</Button>
-      </div>
     </Fragment>
   );
 };
