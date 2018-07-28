@@ -6,7 +6,7 @@ export default {
 
   genre: {
     fontSize: '16px',
-    margin: '3px'
+    margin: '3px',
   },
 
   card: {
@@ -18,6 +18,7 @@ export default {
   details: {
     display: 'flex',
     flexDirection: 'column',
+    position: 'relative'
   },
   content: {
     display: 'flex',
@@ -26,8 +27,11 @@ export default {
   },
   cover: {
     width: '100%',
-    maxWidth: '300px',
-    height: 'auto'
+    maxWidth: '500px',
+    height: '300px',
+    opacity: 1,
+    transition: '.5s ease',
+    backfaceVisibility: 'hidden',
   },
   title: {
     fontSize: '25px',
@@ -47,23 +51,23 @@ export default {
     flexWrap: 'wrap',
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    zIndex: 5
   },
   description: {
     fontSize: '15px',
     marginTop: 'auto',
   },
 
-  button: {
-
-  },
+  button: {},
 
   overlay: {
-    width: '100%',
-    height: '100%',
+    transition: '.5s ease',
+    opacity: 0,
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    textAlign: 'center',
+  },
 
-    '&:hover': {
-      background: 'rgba(0, 0, 0, 0.5)'
-    }
-  }
-}
+
+};

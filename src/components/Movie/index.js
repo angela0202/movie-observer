@@ -5,18 +5,32 @@ import {
   CardContent,
   Typography,
   List,
-  Chip
+  Chip,
+  Button,
 } from '@material-ui/core/';
 import { withStyles } from '@material-ui/core/styles';
+import { Favorite } from '@material-ui/icons/';
 import { Link } from 'react-router-dom';
 
 import styles from './styles';
 
-const Movie = ({ movie, genres, classes }) => {
+const Movie = ({ movie, genres, classes, onAddToFavorites }) => {
   return (
     <Card className={classes.card}>
-      <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}  className={classes.cover} alt=""/>
+      <div className={classes.imgContainer}>
+        <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}  className={classes.cover} alt=""/>
+        <div className={classes.overlay}>
+          <Button variant="fab" className={classes.button}>
+            <Favorite />
+          </Button>
+        </div>
+      </div>
       <div className={classes.details}>
+        <Button variant="fab" className={classes.button} style={{alignSelf: 'flex-end', position: 'absolute', top: '52px'}}
+          onClick={() => onAddToFavorites(movie.id)}
+        >
+          <Favorite/>
+        </Button>
         <CardContent className={classes.content}>
           <Typography variant="headline" className={classes.title}>
             <Link
