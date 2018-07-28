@@ -5,11 +5,14 @@ import loginReducer from './loginReducer';
 import logoutReducer from './logoutReducer';
 import currentUser from './currentUser';
 import movieReducer from './movieReducer';
+import favorites from './favorites';
+
 
 export default combineReducers({
   form: formReducer,
   loginReducer,
   currentUser,
   logoutReducer,
-  movieReducer
+  movieReducer,
+  favorites
 });
