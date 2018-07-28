@@ -17,8 +17,8 @@ import styles from './styles';
 const Movie = ({ movie, genres, classes, onAddToFavorites }) => {
   return (
     <Card className={classes.card}>
-      <div className={classes.imgContainer}>
-        <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}  className={classes.cover} alt=""/>
+      <div style={{position: 'relative'}}>
+        <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}  className={classes.cover} alt="" onClick={() => onAddToFavorites(movie.id)}/>
         <div className={classes.overlay}>
           <Button variant="fab" className={classes.button}>
             <Favorite />
@@ -26,11 +26,6 @@ const Movie = ({ movie, genres, classes, onAddToFavorites }) => {
         </div>
       </div>
       <div className={classes.details}>
-        <Button variant="fab" className={classes.button} style={{alignSelf: 'flex-end', position: 'absolute', top: '52px'}}
-          onClick={() => onAddToFavorites(movie.id)}
-        >
-          <Favorite/>
-        </Button>
         <CardContent className={classes.content}>
           <Typography variant="headline" className={classes.title}>
             <Link

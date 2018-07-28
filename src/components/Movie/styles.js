@@ -18,7 +18,7 @@ export default {
   details: {
     display: 'flex',
     flexDirection: 'column',
-    position: 'relative'
+    position: 'relative',
   },
   content: {
     display: 'flex',
@@ -67,7 +67,15 @@ export default {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     textAlign: 'center',
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+
+    '&:hover': {
+      opacity: 1,
+      background: 'rgba(63, 102, 159, 0.3)',
+    },
   },
-
-
 };
