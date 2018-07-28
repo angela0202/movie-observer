@@ -27,7 +27,8 @@ class MovieListContainer extends Component {
         genresLoading={this.props.genresLoading}
         moviesLoading={this.props.moviesLoading}
         onAddToFavorites={this.onAddToFavorites}
-      />
+        fetchPopularMovies={this.props.fetchPopularMovies}
+  />
     );
   }
 }
