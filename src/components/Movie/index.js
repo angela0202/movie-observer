@@ -40,11 +40,13 @@ const Movie = ({ movie, genres, classes, onAddToFavorites }) => {
               {movie.title} ({movie.release_date.slice(0, 4)})
             </Link>
           </Typography>
-          <List className={classes.list}>
-            {movie.genre_ids.map(id => (
-              <Chip label={genres[id]} key={id} className={classes.genre} />
-            ))}
-          </List>
+          {!genres ? '' : (
+            <List className={classes.list}>
+              {movie.genre_ids.map(id => (
+                <Chip label={genres[id]} key={id} className={classes.genre} />
+              ))}
+            </List>
+          )}
 
           <Typography component="p" className={classes.description}>
             {movie.overview.substr(0, 120)}...
