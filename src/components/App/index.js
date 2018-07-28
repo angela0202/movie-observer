@@ -8,6 +8,7 @@ import history from '../../helpers/history';
 import Main from '../../containers/Main';
 import Navigation from '../../containers/Navigation';
 import MovieDetails from '../../containers/MovieDetails';
+import Favorites from '../../containers/Favorites';
 
 const App = ({ isAuthenticated }) => {
   return (
@@ -26,6 +27,12 @@ const App = ({ isAuthenticated }) => {
             path="/movie/:id"
             isAuthenticated={isAuthenticated}
             component={MovieDetails}
+          />
+          <PrivateRoute
+            exact
+            path="/favorites"
+            isAuthenticated={isAuthenticated}
+            component={Favorites}
           />
           <Route path="/login" render={() => <LoginForm />} />
         </Switch>
