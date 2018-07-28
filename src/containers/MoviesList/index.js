@@ -40,7 +40,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchPopularMovies: () => dispatch(fetchPopularMovies()),
+  fetchPopularMovies: (page) => dispatch(fetchPopularMovies(page)),
   fetchMovieGenres: () => dispatch(fetchMovieGenres()),
   addToFavorites: movie => dispatch(addToFavorites(movie)),
 });
