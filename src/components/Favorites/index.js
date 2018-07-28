@@ -15,30 +15,27 @@ import FolderIcon from '@material-ui/icons/Folder';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 import styles from './styles';
+import Movie from '../Movie';
 
-const Favorites = () => {
+const Favorites = ({ favorites, favoritesLoading, classes }) => {
   return (
-    <Grid item xs={12} md={6}>
-      <Typography variant="title">Avatar with text and icon</Typography>
-      <div>
-        <List>
-          <ListItem>
-            <ListItemAvatar>
-              <Avatar>
-                <FolderIcon />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary="Single-line item" />
-            <ListItemSecondaryAction>
-              <IconButton aria-label="Delete">
-                <DeleteIcon />
-              </IconButton>
-            </ListItemSecondaryAction>
-          </ListItem>,
-        </List>
+    (favorites !== null && !favoritesLoading) ? (
+
+      <div className={classes.container}>
+        <div className={classes.movies}>
+            {
+              favorites.map((movie, index) => (
+                <Movie movie={movie} key={index} />
+              ))
+            }
+        </div>
       </div>
-    </Grid>
-  );
+
+    ) : (
+      <div style={{ fontSize: '40px', color: '#000' }}>Please wait...</div>
+    )
+  )
+
 };
 
 export default withStyles(styles)(Favorites);
