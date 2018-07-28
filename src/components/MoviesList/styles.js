@@ -5,6 +5,7 @@ export default {
     flexDirection: 'column',
     background: '#e6e6e6',
     padding: '20px 0',
+    alignItems: 'center'
   },
   movies: {
     display: 'flex',
