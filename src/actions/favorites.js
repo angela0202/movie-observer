@@ -53,9 +53,8 @@ export const removeFromFavorites = movieID => dispatch => {
 
 export const fetchFavorites = (favIds) => dispatch => {
   dispatch(fetchFavoritesRequest());
-
   return Promise.all(favIds.map(movie => fetch(
-    `https://api.themoviedb.org/3/movie/${movie.id}?api_key=${apiKey}&language=en-US`
+    `https://api.themoviedb.org/3/movie/${movie}?api_key=${apiKey}&language=en-US`
 
   ).then(res => res.json())))
     .then(payload => dispatch(fetchFavoritesSuccess(payload)))

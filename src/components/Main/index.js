@@ -23,25 +23,7 @@ const Main = ({ popularMovies, genres, classes, handleSearch }) => {
       'no-repeat center center fixed',
       backgroundSize: 'cover',
     }}>
-      <Paper className={classes.optionsContainer}>
-        <Field
-          name="search"
-          component={renderTextField}
-          placeholder="Search movies..."
-          InputProps={{
-            disableUnderline: true,
-            classes: {
-              root: classes.bootstrapRoot,
-              input: classes.bootstrapInput,
-            },
-          }}
-          InputLabelProps={{
-            shrink: true,
-            className: classes.bootstrapFormLabel,
-          }}
-          onChange={e => handleSearch(e.target.value)}
-        />
-      </Paper>
+
       <MoviesList />
     </div>
   );

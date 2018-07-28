@@ -3,8 +3,7 @@ export default {
     display: 'flex',
     height: 'max-content',
     flexDirection: 'column',
-    background: '#e6e6e6',
-    padding: '20px 0',
+    padding: '70px 0',
     alignItems: 'center'
   },
   movies: {

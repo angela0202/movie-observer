@@ -21,13 +21,21 @@ const MovieList = ({
       </div>
       <div>
         {movies.page >= 2 ? (
-          <Button onClick={() => fetchPopularMovies(movies.page - 1)}>
+          <Button onClick={() => fetchPopularMovies(movies.page - 1)} style={{
+            color: '#fff',
+            background: '#c53434',
+            margin: '10px'
+          }}>
             Prev
           </Button>
         ) : (
           ''
         )}
-        <Button onClick={() => fetchPopularMovies(movies.page + 1)}>
+        <Button onClick={() => fetchPopularMovies(movies.page + 1)} style={{
+          color: '#fff',
+          background: '#c53434',
+          margin: '10px'
+        }}>
           Next
         </Button>
       </div>
