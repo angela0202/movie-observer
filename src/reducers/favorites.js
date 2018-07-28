@@ -7,6 +7,8 @@ import {
 
 const initialState = {
   favIds: JSON.parse(localStorage.getItem('favorites')) || [],
+  favoritesLoading: false,
+  fetchedFavorites: null
 };
 
 export default (state = initialState, action) => {
