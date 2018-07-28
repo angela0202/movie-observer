@@ -1,5 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import { Button } from '@material-ui/core/';
 
 import MovieContainer from '../../containers/Movie';
 import styles from './styles';
@@ -9,17 +10,26 @@ const MovieList = ({
   genres,
   moviesLoading,
   classes,
+  fetchPopularMovies,
 }) => {
   return !moviesLoading && movies.results ? (
     <div className={classes.moviesContainer}>
       <div className={classes.movies}>
         {movies.results.map((movie, index) => (
-          <MovieContainer
-            key={index}
-            movie={movie}
-            genres={genres}
-          />
+          <MovieContainer key={index} movie={movie} genres={genres} />
         ))}
+      </div>
+      <div>
+        {movies.page >= 2 ? (
+          <Button onClick={() => fetchPopularMovies(movies.page - 1)}>
+            Prev
+          </Button>
+        ) : (
+          ''
+        )}
+        <Button onClick={() => fetchPopularMovies(movies.page + 1)}>
+          Next
+        </Button>
       </div>
     </div>
   ) : (
