@@ -2,7 +2,8 @@ import {
   ADD_TO_FAVORITES,
   FETCH_FAVORITES_REQUEST,
   FETCH_FAVORITES_SUCCESS,
-  FETCH_FAVORITES_FAILURE, FETCH_MOVIE_DETAILS_FAILURE, FETCH_MOVIE_DETAILS_SUCCESS,
+  FETCH_FAVORITES_FAILURE,
+  REMOVE_FROM_FAVORITES
 } from '../actions/actionTypes';
 
 const initialState = {
@@ -34,6 +35,11 @@ export default (state = initialState, action) => {
         ...state,
         err: action.payload.err,
         favoritesLoading: false
+      };
+    case REMOVE_FROM_FAVORITES:
+      return {
+        ...state,
+        favIds: state.favIds.filter(id => id !== action.payload)
       };
     default:
       return state;
