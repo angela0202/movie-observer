@@ -5,6 +5,10 @@ import { fetchFavorites } from '../../actions/favorites';
 import Favorites from '../../components/Favorites';
 
 class FavoritesContainer extends Component {
+  componentDidMount() {
+    this.props.fetchFavorites(this.props.favorites);
+  }
+
   render() {
     return <Favorites />;
   }
