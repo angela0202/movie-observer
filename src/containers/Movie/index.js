@@ -17,6 +17,7 @@ class MovieContainer extends Component {
     return (
       <Movie
         movie={this.props.movie}
+        genres={this.props.genres}
         onAddToFavorites={this.onAddToFavorites}
         isFav={this.props.isFav}
         onRemoveFromFavorites={this.onRemoveFromFavorites}
