@@ -10,11 +10,15 @@ class FavoritesContainer extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  favorites: state.favorites.favIds,
+});
+
 const mapDispatchToProps = dispatch => ({
   fetchFavorites: favIds => dispatch(fetchFavorites(favIds)),
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(FavoritesContainer);
