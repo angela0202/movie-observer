@@ -4,14 +4,14 @@ import { withStyles } from '@material-ui/core/styles';
 import Movie from '../Movie';
 import styles from './styles';
 
-const MovieList = ({ movies, genres, moviesLoading, classes }) => {
+const MovieList = ({ movies, genres, moviesLoading, classes, onAddToFavorites }) => {
   return (
     (!moviesLoading && movies.results) ? (
 
         <div className={classes.moviesContainer}>
           <div className={classes.movies}>
             {movies.results.map((movie, index) => (
-              <Movie key={index} movie={movie} genres={genres} />
+              <Movie key={index} movie={movie} genres={genres} onAddToFavorites={onAddToFavorites} />
             ))}
           </div>
         </div>
