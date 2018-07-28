@@ -9,7 +9,7 @@ import {
 } from '@material-ui/core/';
 import { Link } from 'react-router-dom';
 import { Field } from 'redux-form';
-import { Paper, TextField } from '@material-ui/core/';
+import { TextField } from '@material-ui/core/';
 
 const renderTextField = ({
   input,

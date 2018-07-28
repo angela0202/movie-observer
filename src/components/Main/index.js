@@ -1,19 +1,10 @@
 import React from 'react';
-import { Field } from 'redux-form';
-import { Paper, TextField } from '@material-ui/core/';
 import { withStyles } from '@material-ui/core/styles';
 
 import styles from './styles';
 import MoviesList from '../../containers/MoviesList';
 
-const renderTextField = ({
-  input,
-  label,
-  meta: { touched, error },
-  ...custom
-}) => <TextField label={label} placeholder={label} {...input} {...custom} />;
-
-const Main = ({ popularMovies, genres, classes, handleSearch }) => {
+const Main = () => {
   return (
     <div style={{
       background:

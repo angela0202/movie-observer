@@ -26,13 +26,6 @@ const fetchFavoritesFailure = err => ({
   favoritesLoading: false,
 });
 
-const handleErrors = res => {
-  if (!res.ok) {
-    throw Error(res.statusText);
-  }
-  return res;
-};
-
 export const addToFavorites = movieID => dispatch => {
   const movie = movieID.toString();
 
