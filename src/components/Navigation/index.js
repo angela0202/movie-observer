@@ -75,7 +75,7 @@ const styles = {
   }
 };
 
-const Navigation = ({ classes, logout, currentUser, handleSearch }) => {
+const Navigation = ({ classes, onLogout, currentUser, handleSearch }) => {
   return (
     <div className={classes.root}>
       <AppBar position="static" className={classes.appBar}>
@@ -111,7 +111,7 @@ const Navigation = ({ classes, logout, currentUser, handleSearch }) => {
             </Button>
           </Link>
           <Avatar>{currentUser.username[0]}</Avatar>
-          <Button color="inherit" onClick={logout}>
+          <Button color="inherit" onClick={() => onLogout()}>
             Logout
           </Button>
         </Toolbar>

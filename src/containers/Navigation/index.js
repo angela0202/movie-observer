@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {createStructuredSelector} from 'reselect';
 
 import Navigation from '../../components/Navigation';
-import {logout} from '../../actions/logout'
+import { logout } from '../../actions/logout'
 import { selectCurrentUser } from '../../selectors';
 import { reduxForm } from 'redux-form';
 import { fetchPopularMovies, searchMovies } from '../../actions/movieActions';
@@ -16,7 +16,11 @@ const NavigationContainer = (props) => {
       : props.searchMovies(query, page);
   };
 
-  return <Navigation handleSearch={handleSearch} currentUser={props.currentUser}/>
+  const onLogout = () => {
+    props.logout();
+  };
+
+  return <Navigation handleSearch={handleSearch} currentUser={props.currentUser} onLogout={onLogout}/>
 };
 
 const mapStateToProps = createStructuredSelector({

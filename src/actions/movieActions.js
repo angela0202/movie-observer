@@ -15,7 +15,8 @@ import {
 
 import store from '../store';
 
-const apiKey = store.getState().currentUser.password;
+/*const apiKey = '46af50cafe8e86626ec6d59ae22ad0a9';*/
+const apiKey = store.getState().currentUser ? store.getState().currentUser.password : '';
 
 const popularMoviesRequest = () => ({
   type: POPULAR_MOVIES_FETCH_REQUEST,
