@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core/';
 
@@ -43,6 +44,13 @@ const MovieList = ({
   ) : (
     <div style={{ fontSize: '40px' }}>Please wait...</div>
   );
+};
+
+MovieList.propTypes = {
+  movies: PropTypes.object.isRequired,
+  genres: PropTypes.object.isRequired,
+  moviesLoading: PropTypes.bool,
+  fetchPopularMovies: PropTypes.func.isRequired
 };
 
 export default withStyles(styles)(MovieList);

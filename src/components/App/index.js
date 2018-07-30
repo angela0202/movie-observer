@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { Router, Switch, Route } from 'react-router-dom';
 
 import PrivateRoute from '../PrivateRoute';
@@ -39,6 +40,10 @@ const App = ({ isAuthenticated }) => {
       </Fragment>
     </Router>
   );
+};
+
+App.propTyps = {
+  isAuthenticated: PropTypes.bool.isRequired
 };
 
 export default App;

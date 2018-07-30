@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Card,
   CardContent,
@@ -68,6 +69,14 @@ const Movie = ({
       </div>
     </Card>
   );
+};
+
+Movie.propTypes = {
+  movie: PropTypes.object.isRequired,
+  genres: PropTypes.object.isRequired,
+  onAddToFavorites: PropTypes.func.isRequired,
+  onRemoveFromFavorites: PropTypes.func.isRequired,
+  isFav: PropTypes.bool.isRequired
 };
 
 export default withStyles(styles)(Movie);

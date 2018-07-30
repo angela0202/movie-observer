@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 
 import {
@@ -13,7 +14,7 @@ import { Link } from 'react-router-dom';
 
 import styles from './styles';
 
-const Favorites = ({ favorites, favoritesLoading, classes }) => {
+const Favorites = ({ favorites, favoritesLoading }) => {
   return favorites !== null && !favoritesLoading ? (
     <div
       style={{
@@ -76,6 +77,11 @@ const Favorites = ({ favorites, favoritesLoading, classes }) => {
   ) : (
     <div style={{ fontSize: '40px', color: '#000' }}>Please wait...</div>
   );
+};
+
+Favorites.propTypes = {
+  favorites: PropTypes.array,
+  favoritesLoading: PropTypes.bool.isRequired
 };
 
 export default withStyles(styles)(Favorites);

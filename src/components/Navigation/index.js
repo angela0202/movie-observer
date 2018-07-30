@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import {
   AppBar,
@@ -118,6 +119,12 @@ const Navigation = ({ classes, onLogout, currentUser, handleSearch }) => {
       </AppBar>
     </div>
   );
+};
+
+Navigation.propTypes = {
+  currentUser: PropTypes.object.isRequired,
+  handleSearch: PropTypes.func.isRequired,
+  onLogout: PropTypes.func.isRequired
 };
 
 export default withStyles(styles)(Navigation);

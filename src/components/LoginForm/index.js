@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field } from 'redux-form';
+import PropTypes from 'prop-types';
 import {
   withStyles,
   MuiThemeProvider,
@@ -29,7 +30,7 @@ const theme = createMuiTheme({
   },
 });
 
-export const LoginForm = ({
+const LoginForm = ({
   handleSubmit,
   onSubmit,
   classes,
@@ -85,6 +86,13 @@ export const LoginForm = ({
       </Card>
     </div>
   );
+};
+
+LoginForm.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  isLoginRequesting: PropTypes.bool.isRequired,
+  loginError: PropTypes.bool
 };
 
 export default withStyles(styles)(LoginForm);
